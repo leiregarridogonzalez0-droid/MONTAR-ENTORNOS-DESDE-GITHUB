@@ -7,6 +7,9 @@ Cierra la ventana para que el programa termine.
 """
 from pathlib import Path
  
+import matplotlib
+matplotlib.use("Agg")
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -58,5 +61,5 @@ fig2.savefig(SALIDA / "evolucion_mensual.png", dpi=120)
 print("Gráficos guardados en la carpeta 'graficos':")
 for imagen in sorted(SALIDA.glob("*.png")):
     print("  ", imagen.name)
- 
-plt.show()
+
+plt.close("all")
